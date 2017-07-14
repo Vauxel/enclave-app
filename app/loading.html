@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Enclave [Loading...]</title>
+		<style>
+			html {
+				height: 100%;
+			}
+			body {
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				overflow: hidden;
+			}
+			.loading-logo {
+				max-width: 75%;
+				width: auto;
+				height: auto;
+				margin-bottom: 40px;
+			}
+			@keyframes pulse {
+				50% {
+					background: #FFFFFF;
+				}
+			}
+			.loading-pulse {
+				position: relative;
+				width: 6px;
+				height: 24px;
+				background: rgba(#FFFFFF, 0.2);
+				animation: pulse 750ms infinite;
+				animation-delay: 250ms;
+			}
+			.loading-pulse:before, .loading-pulse:after {
+				content: '';
+				position: absolute;
+				display: block;
+				height: 16px;
+				width: 6px;
+				background: rgba(#FFFFFF, 0.2);
+				top: 50%;
+				transform: translateY(-50%);
+				animation: pulse 750ms infinite;
+			}
+			.loading-pulse:before {
+				left: -12px;
+			}
+			.loading-pulse:after {
+				left: 12px;
+				animation-delay: 500ms;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="./res/images/logo-inv.png" class="loading-logo">
+		<div class="loading-pulse"></div>
+	</body>
+</html>

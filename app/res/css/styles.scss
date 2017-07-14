@@ -1,0 +1,88 @@
+@import "./variables.scss";
+
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans');
+
+body {
+	font-family: 'Fira Sans', sans-serif;
+	font-size: 15px;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	-webkit-app-region: no-drag;
+}
+
+button {
+	-webkit-app-region: no-drag;
+}
+
+.center-align {
+	display: flex;
+	justify-content: center;
+}
+
+.input-header {
+	color: #acacac;
+	text-transform: uppercase;
+	font-size: 13px;
+	padding-bottom: 5px;
+}
+
+input {
+	outline: none;
+}
+
+input.input-field {
+	box-sizing: border-box;
+	width: 100%;
+	margin-bottom: 15px;
+	padding: 7.5px;
+	background-color: $color-secondary;
+	border: solid 1px #181a1f;
+	border-radius: 3px;
+	color: #f7f7f7;
+
+	&:hover {
+		border-color: #101114;
+	}
+
+	&:focus {
+		border-color: #101114;
+	}
+}
+
+.btn {
+	display: inline-block;
+	padding: 5px;
+	border: 3px solid;
+	border-radius: 5px;
+	color: inherit;
+	transition: all 0.2s;
+	font-size: 0.9em;
+
+	&:hover,:active {
+		color: #ffffff;
+	}
+}
+
+.btn-outline {
+	@extend .btn;
+	border-color: rgb(69, 147, 227);
+
+	&:hover,:active {
+		background: rgb(69, 147, 227);
+	}
+}
+
+.btn-filled {
+	@extend .btn;
+	border: 3px solid rgb(69, 147, 227);
+	border-radius: 5px;
+	background: rgb(69, 147, 227);
+
+	&:hover,:active {
+		background: rgb(49, 105, 162);
+		border-color: rgb(49, 105, 162);
+	}
+}
