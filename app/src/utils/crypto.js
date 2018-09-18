@@ -1,13 +1,13 @@
 const sodium = require('libsodium-wrappers');
 
 export function generateSharedSecret(publicKey, privateKey) {
-	return sodium.crypto_box_beforenm(sodium.from_base64(publicKey), sodium.from_base64(privateKey));
+	return sodium.crypto_box_beforenm(sodium.from_hex(publicKey), sodium.from_hex(privateKey));
 }
 
 export function generateAuthToken(uniqueData, userID, sharedSecret) {
 	var currentTime = (Date.now() / 1000) | 0;
-	var token = sodium.crypto_auth(uniqueData + "|" + currentTime, sharedSecret, "base64");
-	var authString = sodium.to_base64(sodium.from_string(userID + ":" + currentTime + ":" + token));
+	var token = sodium.crypto_auth(uniqueData + "|" + currentTime, sharedSecret, "hex");
+	var authString = sodium.to_hex(sodium.from_string(userID + ":" + currentTime + ":" + token));
 	return authString;
 }
 

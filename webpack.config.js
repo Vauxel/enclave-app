@@ -1,6 +1,9 @@
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
+
 module.exports = {
 	watch: true,
-	target: 'electron',
+	target: 'electron-main',
+	mode: 'development',
 	entry: './app/src/app.js',
 	output: {
 		path: __dirname + '/app/build',
@@ -8,7 +11,7 @@ module.exports = {
 		filename: 'bundle.js'
 	},
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.vue$/,
 				loader: 'vue-loader'
@@ -16,6 +19,14 @@ module.exports = {
 			{
 				test: /\.node$/,
 				loader: 'node-loader'
+			},
+			{
+				test: /\.sass$/,
+				use: [
+					'vue-style-loader',
+					'css-loader',
+					'sass-loader'
+				]
 			},
 			{
 				test: /\.(png|jpg|gif|woff|woff2|eot|ttf|svg)$/,
@@ -31,5 +42,8 @@ module.exports = {
 			'vue': 'vue/dist/vue.js',
 			'~': __dirname + '/app/src'
 		}
-	}
+	},
+	plugins: [
+		new VueLoaderPlugin()
+	]
 }

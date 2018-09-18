@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const sodium = require('libsodium-wrappers');
 const {app} = require('electron').remote;
 
 export const identityFile = path.join(app.getPath('userData'), 'identity.json');
@@ -14,10 +15,10 @@ export function generateIdentity(callback) {
 		return loadIdentity(callback);
 	}
 
-	var keypair = sodium.crypto_box_keypair()
+	var keypair = sodium.crypto_box_keypair();
 
-	var pubKey = sodium.to_base64(keypair.publicKey);
-	var privKey = sodium.to_base64(keypair.privateKey);
+	var pubKey = sodium.to_hex(keypair.publicKey);
+	var privKey = sodium.to_hex(keypair.privateKey);
 
 	var identity = {
 		public: pubKey,
