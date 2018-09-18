@@ -1,5 +1,5 @@
 # Enclave
-A prototype for a server-based, encrypted chat application.  Messages between connected clients, which securely pass through the server, are authenticated and end-to-end encrypted using public-key and symmetric secret-key cryptography provided by the [libsodium](https://github.com/jedisct1/libsodium) library.
+A prototype for a server-based, encrypted chat application.  Messages between connected clients and the server are authenticated and encrypted using asymmetric public-key and symmetric secret-key cryptography provided by the [libsodium](https://github.com/jedisct1/libsodium) library.
 
 ## Built With
 * [Node.js](https://nodejs.org) - client
@@ -23,12 +23,8 @@ npm install
 
 Run the client
 ```
-npm start
-```
-
-or to run in development mode
-```
 npm run dev
+npm start
 ```
 
 #### [Install and spin-up the server backend](https://github.com/Vauxel/enclave-server)
